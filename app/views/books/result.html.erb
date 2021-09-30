@@ -1,0 +1,54 @@
+<h1>Search Results</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+ 
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>ISBN:</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>Copies:</strong>
+  <%= @book.copies %>
+</p>
+
+<h2>Reviews</h2>
+<% @book.reviews.each do |review| %>
+  <p>
+    <strong>Name:</strong>
+    <%= review.name %>
+  </p>
+ 
+  <p>
+    <strong>Review:</strong>
+    <%= review.body %>
+  </p>
+  <%= link_to 'Destroy Review', [review.book, review], method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+<h2>Add	 a review:</h2>
+<%=	form_with(model: [ @book,	@book.reviews.build ],	local:	true)	do	|form|	%>
+  <p>
+    <%=	form.label :name	%><br>
+    <%=	form.text_field :name	%>
+  </p>
+  <p>
+    <%=	form.label :body	 %><br>
+    <%=	form.text_area :body	%>
+  </p>
+  <p>
+    <%=	form.submit %>
+  </p>
+<%	end	%>
+
+
+    <%= link_to "Back", welcome_index_path %>

@@ -1,0 +1,27 @@
+<h1>Searching Result</h1>
+
+<% if @patron_search.patronsearch_books.empty? %>
+  <p>No Records Found</p>
+<% else %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>ISBN</th>
+    <th>Copies</th>
+    <th></th>
+  </tr>
+
+  <%	@patron_search.patronsearch_books.each do	|book|	%>
+    <tr>
+      <td><%=	book.title %></td>
+      <td><%=	book.author %></td>
+      <td><%=	book.isbn %></td>
+      <td><%=	book.copies %></td>
+      <td><%=	link_to 'Add Review', book_path(book)	%></td>
+      <td><%=	link_to 'View Review', book_reviews_path(book)	%></td>
+    </tr>
+  <%	end	%>
+</table>
+<% end %>
+<%= link_to "Back", welcome_index_path %>

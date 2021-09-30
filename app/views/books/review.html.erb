@@ -1,0 +1,15 @@
+<h2>Reviews</h2>
+<div hidden> <%= @book = Book.find(params[:book_id]) %></div >
+<% @book.reviews.each do |review| %>
+  <p>
+    <strong>Name:</strong>
+    <%= review.name %>
+  </p>
+ 
+  <p>
+    <strong>Review:</strong>
+    <%= review.body %>
+  </p>
+
+
+<% end %>

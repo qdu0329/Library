@@ -1,0 +1,14 @@
+<h2>Reviews</h2>
+<% @book.reviews.each do |review| %>
+  <p>
+    <strong>Name:</strong>
+    <%= review.name %>
+  </p>
+ 
+  <p>
+    <strong>Review:</strong>
+    <%= review.body %>
+  </p>
+ 
+
+<% end %>

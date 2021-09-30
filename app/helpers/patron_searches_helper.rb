@@ -1,0 +1,2 @@
+module PatronSearchesHelper
+end
